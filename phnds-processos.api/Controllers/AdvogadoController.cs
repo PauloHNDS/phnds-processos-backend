@@ -6,7 +6,7 @@ using phnds_processos.domain.Advogado;
 namespace phnds_processos.api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/advogado")]
     public class AdvogadoController : ControllerBase
     {

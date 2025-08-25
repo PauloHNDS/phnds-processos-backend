@@ -62,6 +62,8 @@ namespace phnds_processos.data.ef.Services
                 throw new KeyNotFoundException($"A entidade com o código : {code} não foi encontrado.");
             }
 
+            entity.ApagadoEm = DateTime.Now;
+
             entity.Apagado = true;
 
             _dbSet.Update(entity);
@@ -79,7 +81,7 @@ namespace phnds_processos.data.ef.Services
                 throw new ArgumentNullException(nameof(command), "Entidade não pode se nula !!!");
             }
 
-            var existingEntity = await _dbSet.FirstOrDefaultAsync(x => x.Code == code && !x.Apagado);
+            var existingEntity = await _dbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Code == code && !x.Apagado);
 
             if (existingEntity == null)
             {
@@ -93,6 +95,8 @@ namespace phnds_processos.data.ef.Services
             entity.Code = existingEntity.Code;
 
             entity.CriadoEm = existingEntity.CriadoEm;
+
+            entity.AtualizadoEm = DateTime.Now;
 
             await _context.Database.BeginTransactionAsync();
 

@@ -70,10 +70,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularDevPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:4200") // domínio do Angular
-              .AllowAnyMethod()                    // GET, POST, PUT, DELETE...
-              .AllowAnyHeader()                    // headers customizados
-              .AllowCredentials();                 // necessário se usar cookies ou auth
+        policy.WithOrigins("http://localhost:4200") 
+              .AllowAnyMethod()                    
+              .AllowAnyHeader()                    
+              .AllowCredentials();                 
     });
 });
 

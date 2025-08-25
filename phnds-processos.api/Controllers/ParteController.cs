@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using phnds_processos.domain.Parte;
 
 namespace phnds_processos.api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/parte")]
     public class ParteController : ControllerBase
     {

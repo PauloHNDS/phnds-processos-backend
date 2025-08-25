@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using phnds_processos.domain.Andamento;
 
 namespace phnds_processos.api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/andamento")]
     public class AndamentoController : ControllerBase
     {

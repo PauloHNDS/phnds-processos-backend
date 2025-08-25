@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace phnds_processos.api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/processo")]
     public class ProcessoController : ControllerBase
     {
@@ -78,6 +78,25 @@ namespace phnds_processos.api.Controllers
             }
 
             return CreatedAtAction(nameof(GetProcessos), new { id = result.Id }, result);
+
+        }
+
+        [HttpPut("{code}")]
+        public async Task<IActionResult> AtualizarProcesso([FromBody] ProcessoCommand processoCommand, [FromRoute] Guid code)
+        {
+            if (processoCommand == null)
+            {
+                return BadRequest("Processo não pode ser nulo");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _processoService.UpdateAsync(processoCommand, code);
+
+            return Ok();
 
         }
 
