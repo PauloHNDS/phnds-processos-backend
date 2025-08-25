@@ -7,7 +7,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=MinhaSenhaForte123!" -p 1433:1433 
 ```
 O projeto possui um auth controle ce acesso bem básico já.
 
-aqui um sql com alguns usuarios.
+aqui um sql com alguns usuarios, para não abstrair muito do foco não adicionei a parte de gerenciamento de usuario.
 
 ```sql
 INSERT INTO processos.dbo.Usuarios
@@ -19,3 +19,8 @@ VALUES
 
 ('Carlos Souza', 'carlos.souza@email.com', CONVERT(varbinary(50), '1234'), 4, NEWID(), GETDATE(), GETDATE(), NULL, 0);
 ```
+comando para rodar a migrations lembrando que é necessario está na pasta da sln, não dentro do api, pois as configs do entity framework estão em um lib separada no caso a data.ef
+
+```bash
+dotnet ef database update   --project phnds-processos.data.ef   --startup-project phnds-processos.api
+````
