@@ -21,6 +21,8 @@ VALUES
 ```
 comando para rodar a migrations lembrando que é necessario está na pasta da sln, não dentro do api, pois as configs do entity framework estão em um lib separada no caso a data.ef
 
+caso for rodar pelo terminal necessario está instalado o entityframework tools para rodar a migrations, recomando utilizar o tools pelo terminal, por experiencias passadas, acredito que acaba gerando menos problemas.
+
 ```bash
 dotnet ef database update   --project phnds-processos.data.ef   --startup-project phnds-processos.api
 ````
