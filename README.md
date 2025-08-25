@@ -26,3 +26,7 @@ caso for rodar pelo terminal necessario está instalado o entityframework tools 
 ```bash
 dotnet ef database update   --project phnds-processos.data.ef   --startup-project phnds-processos.api
 ````
+Pode ser a versão 9.0.8
+ID do Pacote      Versão      Comandos
+---------------------------------------
+dotnet-ef         9.0.8       dotnet-ef
